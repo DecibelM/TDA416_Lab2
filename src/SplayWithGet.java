@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 public class SplayWithGet<E extends Comparable<? super E>>
         extends BinarySearchTree<E>
         implements CollectionWithGet<E>{
@@ -176,4 +177,3 @@ public class SplayWithGet<E extends Comparable<? super E>>
             x.right.parent = x;
         }
     } // zagzag
-}
