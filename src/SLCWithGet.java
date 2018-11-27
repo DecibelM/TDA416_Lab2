@@ -3,6 +3,9 @@ public class SLCWithGet<E extends Comparable<? super E>>
         implements CollectionWithGet<E> {
 
 
+    public SLCWithGet() {
+        super();
+    }
 
     @Override
     public E get(E element) {
@@ -19,10 +22,24 @@ public class SLCWithGet<E extends Comparable<? super E>>
 
 
     @Override
-    public boolean add(E e){
+    public boolean add(E element){
+        Entry t = head;
+        Entry a = null;
+        if (element == null) {
+            throw new NullPointerException();
+        }else {
+            while (t.element.compareTo(element) < 0 && t != null){
+                a = t;
+                t = t.next;
+            }
+            Entry e =new Entry(element, t);
 
-
-
+            if(t == head){
+                head = e;
+            }else {
+                a.next = e;
+            }
+        }
         return true;
     }
 }
@@ -33,6 +50,4 @@ public class SLCWithGet<E extends Comparable<? super E>>
 //Done: Created class SLCWithGet (this class). Class head done by looking at picture
 // and comparing to BSTwithGet class.
 
-//TODO: Write method add, LinkedCollection is not sorted. Least element should be first.
-//TODO: How to know what element is least?
-//TODO: Write method get.
+
