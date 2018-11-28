@@ -42,7 +42,7 @@ public class TestFrame extends JFrame implements ActionListener {
 /*  ########## ########## ########## ########## ##########  */  
 /* ###### LÄGG TILL kommentarer på de 2 följande raderna när ni skrivit era samlingar */
 	//TestMapWithCounter<String,List<Integer>> slcMap = null;
-	//TestMapWithCounter<String,List<Integer>> splayMap = null;
+	TestMapWithCounter<String,List<Integer>> splayMap = null;
 
 	TestMapWithCounter<String,List<Integer>>
 /*  ########## ########## ########## ########## ##########  */  

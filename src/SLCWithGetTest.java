@@ -7,6 +7,11 @@ public class SLCWithGetTest {
 
     @org.junit.Test
     public void get() {
+        slc.add("hej");
+        slc.add("java");
+        slc.add("java");
+        out.println(slc.get("java"));
+        out.println(slc.get("element"));
 
     }
 
@@ -16,6 +21,7 @@ public class SLCWithGetTest {
         slc.add("java");
         slc.add("okej");
         slc.add("element");
+        slc.add ("java");
         out.print(slc.head.element);
 
 
