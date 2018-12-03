@@ -11,6 +11,69 @@ public class SplayWithGet<E extends Comparable<? super E>>
         return t == null ? null : t.element;
     }  // get
 
+    public boolean add(E e) {
+        if (e == null) {
+            throw new NullPointerException();
+        }
+        if (root == null){
+            root = new Entry(e, null);
+        } else {
+            addInSplay(e, root);
+        }
+        size++;
+        return true;
+    }
+
+    private boolean addInSplay(E e, Entry t){
+        if ( e.compareTo(t.element) < 0){
+            if (t.left == null){
+                t.left = new Entry(e, t);
+            }
+            else {
+                boolean left = addInSplay(e,t.left);
+
+            }
+        }
+        return true;
+    }
+   /*
+    if ( newElem.compareTo( t.element ) < 0 ) {
+        if ( t.left == null ) {
+            t.left = new AVL_Entry( newElem, t );
+            checkHeight(t);
+        }
+        else {
+            boolean left = addInAVL( newElem, t.left );
+            if ( height(t.left) - height(t.right) > 1 ) {
+                if ( left )
+                    rotateRight( t );
+                else
+                    doubleRotateRight( t );
+            }
+            else
+                checkHeight(t);
+        }
+        return true;
+    }
+		else {
+        if ( t.right == null ) {
+            t.right = new AVL_Entry( newElem, t );
+            checkHeight(t);
+        }
+        else {
+            boolean left = addInAVL( newElem, t.right );
+            if ( height(t.right) - height(t.left) > 1 ) {
+                if ( left )
+                    doubleRotateLeft( t );
+                else
+                    rotateLeft( t );
+            }
+            else
+                checkHeight(t);
+        }
+    }
+		return false;*/
+
 
 
 
