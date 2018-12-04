@@ -28,28 +28,39 @@ public class SplayWithGet<E extends Comparable<? super E>>
     }*/
 
     private boolean splay(Entry t){
-        if ( t == null){
 
-        }
-        while (t != root ){
-            if (t.parent == null){
+        //boolean hasParent = !t.parent.equals(null);
+        //boolean hasGrandParent = !t.parent.parent.equals(null);
+        //boolean hasLeftChild = !t.left.equals(null);
+        //boolean hasRightChild = !t.right.equals(null);
+        //boolean hasRightRightChild
+
+        while (!t.equals(root) ){
+            if (t.parent.equals(null)){
                 t = root;
-            }
-            if (t.parent.parent != root){
-                if (t.parent.left == t){
-                    zig(t);
-                }else {
-                    zag(t);
-                }
-            }else if (t.parent.parent == root){
-                if (t.parent.parent.left.left == t){
-                    zigzig(t);
-                }else if (t.parent.parent.left.right == t){
-                    zigzag(t);
-                }else if (t.parent.parent.right.right == t){
-                    zagzag(t);
-                }else if (t.parent.parent.right.left == t) {
-                    zagzig(t);
+            }else {
+                if (t.parent.equals(root) || !t.parent.parent.equals( root)) {
+                    if (t.equals( t.parent.left)) {
+                        zig(t.parent);
+                        t = t.parent;
+                    } else {
+                        zag(t.parent);
+                        t = t.parent;
+                    }
+                } else if (t.parent.parent .equals( root)) {
+                    if (t.parent.parent.left != null && t.equals(t.parent.parent.left.left)) {
+                        zigzig(t.parent.parent);
+                        t = t.parent;
+                    } else if (t.parent.parent.left != null && t.equals(t.parent.parent.left.right)) {
+                        zigzag(t.parent.parent);
+                        t = t.parent;
+                    } else if (t.parent.parent.right != null && t.equals( t.parent.parent.right.right)) {
+                        zagzag(t.parent.parent);
+                        t = t.parent;
+                    } else if (t.parent.parent.right != null && t.equals( t.parent.parent.right.left )) {
+                        zagzig(t.parent.parent);
+                        t = t.parent;
+                    }
                 }
             }
         }
