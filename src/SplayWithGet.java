@@ -8,10 +8,13 @@ public class SplayWithGet<E extends Comparable<? super E>>
 
     public E get(E e) {
         Entry t = find(e, root);
+        if (t != null) {
+            splay(t);
+        }
         return t == null ? null : t.element;
     }  // get
 
-    public boolean add(E e) {
+    /*public boolean add(E e) {
         if (e == null) {
             throw new NullPointerException();
         }
@@ -22,58 +25,71 @@ public class SplayWithGet<E extends Comparable<? super E>>
         }
         size++;
         return true;
-    }
+    }*/
 
-    private boolean addInSplay(E e, Entry t){
-        if ( e.compareTo(t.element) < 0){
-            if (t.left == null){
-                t.left = new Entry(e, t);
+    private boolean splay(Entry t){
+        if ( t == null){
+
+        }
+        while (t != root ){
+            if (t.parent == null){
+                t = root;
             }
-            else {
-                boolean left = addInSplay(e,t.left);
-
+            if (t.parent.parent != root){
+                if (t.parent.left == t){
+                    zig(t);
+                }else {
+                    zag(t);
+                }
+            }else if (t.parent.parent == root){
+                if (t.parent.parent.left.left == t){
+                    zigzig(t);
+                }else if (t.parent.parent.left.right == t){
+                    zigzag(t);
+                }else if (t.parent.parent.right.right == t){
+                    zagzag(t);
+                }else if (t.parent.parent.right.left == t) {
+                    zagzig(t);
+                }
             }
         }
         return true;
     }
-   /*
-    if ( newElem.compareTo( t.element ) < 0 ) {
-        if ( t.left == null ) {
-            t.left = new AVL_Entry( newElem, t );
-            checkHeight(t);
-        }
-        else {
-            boolean left = addInAVL( newElem, t.left );
-            if ( height(t.left) - height(t.right) > 1 ) {
-                if ( left )
-                    rotateRight( t );
-                else
-                    doubleRotateRight( t );
-            }
-            else
-                checkHeight(t);
-        }
-        return true;
-    }
-		else {
-        if ( t.right == null ) {
-            t.right = new AVL_Entry( newElem, t );
-            checkHeight(t);
-        }
-        else {
-            boolean left = addInAVL( newElem, t.right );
-            if ( height(t.right) - height(t.left) > 1 ) {
-                if ( left )
-                    doubleRotateLeft( t );
-                else
-                    rotateLeft( t );
-            }
-            else
-                checkHeight(t);
-        }
-    }
-		return false;*/
 
+    /*while (x.parent)
+    {
+        if (!x.parent.parent)
+        {
+            if (x.parent.left == x)
+            {
+                right_rotate(x.parent);
+            }
+            else
+            {
+                left_rotate(x.parent);
+            }
+        }
+        else if (x.parent.left == x && x.parent.parent.left == x.parent)
+        {
+            right_rotate(x.parent.parent);
+            right_rotate(x.parent);
+        }
+        else if (x.parent.right == x && x.parent.parent.right == x.parent)
+        {
+            left_rotate(x.parent.parent);
+            left_rotate(x.parent);
+        }
+        else if (x.parent.left == x && x.parent.parent.right == x.parent)
+        {
+            right_rotate(x.parent);
+            left_rotate(x.parent);
+        }
+        else
+        {
+            left_rotate(x.parent);
+            right_rotate(x.parent);
+        }
+    }*/
 
 
 
