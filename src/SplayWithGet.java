@@ -6,35 +6,40 @@ public class SplayWithGet<E extends Comparable<? super E>>
         super();
     }
 
+    protected Entry find(E elem, Entry t){
+        if ( t == null )
+            return null;
+        else {
+            int jfr = elem.compareTo( t.element );
+            if ( jfr  < 0 )
+                if (t.left == (null)) {
+                    return t;
+                }else {
+                    return find(elem, t.left);
+                }
+            else if ( jfr > 0 )
+                if(t.right == (null)){
+                    return t;
+                }else {
+                    return find(elem, t.right);
+                }
+            else
+                return t;
+        }
+    }
+
     public E get(E e) {
         Entry t = find(e, root);
         if (t != null) {
             splay(t);
+            return t.element != e ? null : t.element;
         }
-        return t == null ? null : t.element;
+        return null;
     }  // get
 
-    /*public boolean add(E e) {
-        if (e == null) {
-            throw new NullPointerException();
-        }
-        if (root == null){
-            root = new Entry(e, null);
-        } else {
-            addInSplay(e, root);
-        }
-        size++;
-        return true;
-    }*/
+
 
     private boolean splay(Entry t){
-
-        //boolean hasParent = !t.parent.equals(null);
-        //boolean hasGrandParent = !t.parent.parent.equals(null);
-        //boolean hasLeftChild = !t.left.equals(null);
-        //boolean hasRightChild = !t.right.equals(null);
-        //boolean hasRightRightChild
-
         while (!t.equals(root) ){
             if (t.parent.equals(null)){
                 t = root;
@@ -66,43 +71,6 @@ public class SplayWithGet<E extends Comparable<? super E>>
         }
         return true;
     }
-
-    /*while (x.parent)
-    {
-        if (!x.parent.parent)
-        {
-            if (x.parent.left == x)
-            {
-                right_rotate(x.parent);
-            }
-            else
-            {
-                left_rotate(x.parent);
-            }
-        }
-        else if (x.parent.left == x && x.parent.parent.left == x.parent)
-        {
-            right_rotate(x.parent.parent);
-            right_rotate(x.parent);
-        }
-        else if (x.parent.right == x && x.parent.parent.right == x.parent)
-        {
-            left_rotate(x.parent.parent);
-            left_rotate(x.parent);
-        }
-        else if (x.parent.left == x && x.parent.parent.right == x.parent)
-        {
-            right_rotate(x.parent);
-            left_rotate(x.parent);
-        }
-        else
-        {
-            left_rotate(x.parent);
-            right_rotate(x.parent);
-        }
-    }*/
-
-
 
 
     /* Rotera 1 steg i hogervarv, dvs
@@ -233,35 +201,6 @@ public class SplayWithGet<E extends Comparable<? super E>>
         }
     } // zigzig
 
-    /*private void zigzig(Entry x) {
-        Entry y = x.left,
-                z = x.left.left;
-        E e = x.element;
-        x.element = z.element;
-        z.element = e;
-
-
-        Entry p = z.right;
-        z.right = x.left;
-        if (z.right != null) {
-            z.right.parent = z;
-        }
-        y.left = p;
-        if (y.left != null) {
-            y.left.parent = y;
-        }
-        p = y.right;
-        y.right = x;
-        if (y.right != null) {
-            z.parent = x.parent;
-            y.right.parent = y;
-        }
-        x.left = p;
-        if (x.left != null) {
-            x.left.parent = x;
-        }
-
-    }*/ // zigzig
 
     private void zagzag(Entry x) {
         Entry y = x.right,
@@ -292,32 +231,4 @@ public class SplayWithGet<E extends Comparable<? super E>>
         }
     } // zagzag
 
-    /*private void zagzag(Entry x) {
-        Entry y = x.right,
-                z = x.right.right;
-        E e = x.element;
-        x.element = z.element;
-        z.element = e;
-
-
-        Entry p = z.left;
-        z.left = x.right;
-        if (z.left != null) {
-            z.left.parent = z;
-        }
-        y.right = p;
-        if (y.right != null) {
-            y.right.parent = y;
-        }
-        p = y.left;
-        y.left = x;
-        if (y.left != null) {
-            z.parent = x.parent;
-            y.left.parent = y;
-        }
-        x.right = p;
-        if (x.right != null) {
-            x.right.parent = x;
-        }
-    } */ // zagzag
 }

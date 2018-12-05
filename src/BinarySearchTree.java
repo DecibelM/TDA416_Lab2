@@ -413,7 +413,7 @@ public class BinarySearchTree<E extends Comparable<? super E>>
 		// ========= ========= ========= ========= ========= =========
 		// ************ ADJUST to your preferences ************
 		// a state variable that determine what kind of printout is returned
-		boolean simple = true; 		// true => style is [ 1 2 3 4 5 6 ]
+		boolean simple = false; 		// true => style is [ 1 2 3 4 5 6 ]
 									// i.e. only content in preorder, no shape
 									// false => trye value of preorder
 		boolean preorder = true;	// true => preorder, 
@@ -422,7 +422,7 @@ public class BinarySearchTree<E extends Comparable<? super E>>
 		// leftBalance and debug only work on bfs 
 		// leftbalance and debug is a good combination
 		// !leftbalance and !debug is a good combination
-		boolean leftBalance = false;	
+		boolean leftBalance = false;
 			// true => each row of the tree start to the left,
 			// use for big trees and if tree content is long like a list
 			// false => root in the middle, max depth 5-6 or so
@@ -620,7 +620,7 @@ public class BinarySearchTree<E extends Comparable<? super E>>
 	// ========= ========= ========= ========= =========
 	// for testing
 	public static void main(String[] args) {
-		BinarySearchTree<Integer> st = new BinarySearchTree<Integer>();
+		/*BinarySearchTree<Integer> st = new BinarySearchTree<Integer>();
 		st.add(1);
 		st.add(2);
 		st.add(3);
@@ -634,24 +634,24 @@ public class BinarySearchTree<E extends Comparable<? super E>>
 		while(it.hasNext()) {
 			System.out.print(it.next() + " ");
 		}
-		System.out.println();
+		System.out.println();*/
 		
-		/*
-		SplayTreeWithGet<Integer> st = new SplayTreeWithGet<Integer>();
+
+		SplayWithGet<Integer> st = new SplayWithGet<Integer>();
 		st.add(100);
 		st.add(50);
 		st.add(150);
 		st.add(25);
-		//st.add(75);
+		st.add(75);
 
 		st.add(125);
 		st.add(175);
 		st.add(120);
 		st.add(110);
-		/*
+
 		st.add(10);
 		st.add(30);
-		/*
+
 		st.add(60);
 		st.add(80);
 		st.add(110);
@@ -666,7 +666,7 @@ public class BinarySearchTree<E extends Comparable<? super E>>
 	
 		System.out.println("Tree after get(75)");
 		System.out.println(st);
-		*/
+
 	} // end main
 	
 }  //  class BinarySearchTree
