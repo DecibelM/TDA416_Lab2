@@ -50,13 +50,13 @@ public class SplayWithGet<E extends Comparable<? super E>>
                 } else if (t.parent.parent .equals( root)) {
                     if (t.parent.parent.left != null && t.equals(t.parent.parent.left.left)) {
                         zigzig(t.parent.parent);
-                        t = t.parent;
+                        t = t.parent.parent;
                     } else if (t.parent.parent.left != null && t.equals(t.parent.parent.left.right)) {
                         zigzag(t.parent.parent);
                         t = t.parent;
                     } else if (t.parent.parent.right != null && t.equals( t.parent.parent.right.right)) {
                         zagzag(t.parent.parent);
-                        t = t.parent;
+                        t = t.parent.parent;
                     } else if (t.parent.parent.right != null && t.equals( t.parent.parent.right.left )) {
                         zagzig(t.parent.parent);
                         t = t.parent;
@@ -204,7 +204,6 @@ public class SplayWithGet<E extends Comparable<? super E>>
         z.parent = x;
     } //  zagzig
 
-
     private void zigzig(Entry x) {
         Entry y = x.left,
                 z = x.left.left;
@@ -213,28 +212,56 @@ public class SplayWithGet<E extends Comparable<? super E>>
         z.element = e;
 
 
-        Entry t = z.right;
+        Entry p = x.right;
+        x.right = x.left;
+        x.left = z.left;
+        if (x.left != null) {
+            x.left.parent = x;
+        }
+        z.left = y.right;
+        if (z.left != null) {
+            z.left.parent = z;
+        }
+        y.right = y.left;
+        y.left = z.right;
+        if (y.left != null) {
+            y.left.parent = y;
+        }
+        z.right = p;
+        if (z.right != null) {
+            z.right.parent = z;
+        }
+    } // zigzig
+
+    /*private void zigzig(Entry x) {
+        Entry y = x.left,
+                z = x.left.left;
+        E e = x.element;
+        x.element = z.element;
+        z.element = e;
+
+
+        Entry p = z.right;
         z.right = x.left;
         if (z.right != null) {
             z.right.parent = z;
         }
-        y.left = t;
+        y.left = p;
         if (y.left != null) {
             y.left.parent = y;
         }
-        t = y.right;
+        p = y.right;
         y.right = x;
         if (y.right != null) {
             z.parent = x.parent;
             y.right.parent = y;
         }
-        x.left = t;
+        x.left = p;
         if (x.left != null) {
             x.left.parent = x;
         }
 
-    } // zigzig
-
+    }*/ // zigzig
 
     private void zagzag(Entry x) {
         Entry y = x.right,
@@ -244,24 +271,53 @@ public class SplayWithGet<E extends Comparable<? super E>>
         z.element = e;
 
 
-        Entry t = z.left;
+        Entry p = x.left;
+        x.left = x.right;
+        x.right = z.right;
+        if (x.right != null) {
+            x.right.parent = x;
+        }
+        z.right = y.left;
+        if (z.right != null) {
+            z.right.parent = z;
+        }
+        y.left = y.right;
+        y.right = z.left;
+        if (y.right != null) {
+            y.right.parent = y;
+        }
+        z.left = p;
+        if (z.left != null) {
+            z.left.parent = z;
+        }
+    } // zagzag
+
+    /*private void zagzag(Entry x) {
+        Entry y = x.right,
+                z = x.right.right;
+        E e = x.element;
+        x.element = z.element;
+        z.element = e;
+
+
+        Entry p = z.left;
         z.left = x.right;
         if (z.left != null) {
             z.left.parent = z;
         }
-        y.right = t;
+        y.right = p;
         if (y.right != null) {
             y.right.parent = y;
         }
-        t = y.left;
+        p = y.left;
         y.left = x;
         if (y.left != null) {
             z.parent = x.parent;
             y.left.parent = y;
         }
-        x.right = t;
+        x.right = p;
         if (x.right != null) {
             x.right.parent = x;
         }
-    } // zagzag
+    } */ // zagzag
 }

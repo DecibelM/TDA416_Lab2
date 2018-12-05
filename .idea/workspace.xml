@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="521e0b10-5efb-4d2c-83ee-eb3ed0b7896c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab2_orig/TestFrame$RadioLyssnare.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab2_orig/TestFrame$RadioLyssnare.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab2_orig/TestFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab2_orig/TestFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SplayWithGet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SplayWithGet.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -60,14 +58,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="11" />
-          <entry key="java" value="3263" />
-          <entry key="txt" value="97" />
+          <entry key="java" value="3560" />
+          <entry key="txt" value="269" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3263" />
-          <entry key="PLAIN_TEXT" value="108" />
+          <entry key="JAVA" value="3560" />
+          <entry key="PLAIN_TEXT" value="280" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -123,8 +121,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SplayWithGet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="251" selection-start-line="251" selection-end-line="251" />
+            <state relative-caret-position="102">
+              <caret line="289" column="29" lean-forward="true" selection-start-line="289" selection-start-column="29" selection-end-line="289" selection-end-column="29" />
               <folding>
                 <element signature="e#164#165#0" expanded="true" />
                 <element signature="e#187#188#0" expanded="true" />
@@ -145,8 +143,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testText.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="5" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+            <state relative-caret-position="323">
+              <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -263,7 +261,7 @@
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543939357122" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543997209827" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
@@ -351,7 +349,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543930352816</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="ZagZag och ZigZig problem.">
+      <created>1543939414019</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1543939414019</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -399,8 +404,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3261745" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.29932886" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3261745" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.29932886" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -424,7 +429,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Test av commit på ITellijae" />
     <MESSAGE value="Splaying av skogen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Splaying av skogen" />
+    <MESSAGE value="ZagZag och ZigZig problem." />
+    <option name="LAST_COMMIT_MESSAGE" value="ZagZag och ZigZig problem." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -437,9 +443,9 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/SplayWithGet.java</url>
-          <line>246</line>
+          <line>319</line>
           <properties />
-          <option name="timeStamp" value="35" />
+          <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -567,13 +573,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testText.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="5" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/aTEXT1.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -625,10 +624,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/testText.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/SplayWithGet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="251" selection-start-line="251" selection-end-line="251" />
+        <state relative-caret-position="102">
+          <caret line="289" column="29" lean-forward="true" selection-start-line="289" selection-start-column="29" selection-end-line="289" selection-end-column="29" />
           <folding>
             <element signature="e#164#165#0" expanded="true" />
             <element signature="e#187#188#0" expanded="true" />
