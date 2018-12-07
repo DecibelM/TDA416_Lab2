@@ -21,30 +21,34 @@ public class SplayWithGet<E extends Comparable<? super E>>
     }//constructor
 
     /**
-     * The find method is used to find the Entry which has a certain element in it.
+     * The find method is used to find the Entry which has a certain element in it and splays it to root.
      * @param elem The element to find in the tree.
      * @param t Dummy entry to compare to.
-     * @return The Entry t which has the same element if found or closest Entry if not found.
+     * @return The element of t which has the same element if found or closest Entry if not found.
      */
-    protected Entry find(E elem, Entry t){
+    protected E findAndSplay(E elem, Entry t){
         if ( t == null )
             return null;
         else {
             int jfr = elem.compareTo( t.element );
             if ( jfr  < 0 )
                 if (t.left == (null)) {
-                    return t;
+                    splay(t);
+                    return null;
                 }else {
-                    return find(elem, t.left);
+                    return findAndSplay(elem, t.left);
                 }
             else if ( jfr > 0 )
                 if(t.right == (null)){
-                    return t;
+                    splay(t);
+                    return null;
                 }else {
-                    return find(elem, t.right);
+                    return findAndSplay(elem, t.right);
                 }
-            else
-                return t;
+            else {
+                //splay(t);
+                return t.element;
+            }
         }
     }//find
 
@@ -52,16 +56,11 @@ public class SplayWithGet<E extends Comparable<? super E>>
      * Gets the element from the tree by splaying its Entry or the closest Entry to the root.
      * If the element is found it returns it and if not found, the method returns null.
      * @param e The dummy element to compare to.
-     * @return The element of t if e is found in the tree, else null.
+     * @return The element of p if e is found in the tree, else null.
      */
     public E get(E e) {
-        Entry t = find(e, root);
-        if (t != null) {
-            splay(t);
-            return e != t.element ? null : t.element;
-        } else {
-            return null;
-        }
+        E p = findAndSplay(e, root);
+        return p == null ? null : p;
     }  // get
 
     /**
