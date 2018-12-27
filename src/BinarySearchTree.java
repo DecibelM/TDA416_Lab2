@@ -172,7 +172,7 @@ public class BinarySearchTree<E extends Comparable<? super E>>
 	// ========== ========== ========== ==========
 	/**
 	* Add the element into the three at first proper empty place
-	* @param o the element to be included  
+	*
 	* @returns true if the element is in included in the tree.
 	*/
 	public boolean add( E elem ) {
@@ -637,7 +637,7 @@ public class BinarySearchTree<E extends Comparable<? super E>>
 		System.out.println();*/
 		
 
-		SplayWithGet<Integer> st = new SplayWithGet<Integer>();
+		/*SplayWithGet<Integer> st = new SplayWithGet<>();
 		st.add(100);
 		st.add(50);
 		st.add(150);
@@ -657,15 +657,39 @@ public class BinarySearchTree<E extends Comparable<? super E>>
 		st.add(110);
 		st.add(130);
 		st.add(160);
-		st.add(180);
+		st.add(180);*/
+
+		SplayWithGet<String> st = new SplayWithGet<>();
+		st.add("hej");
+		st.add("tur");
+		st.add("bla");
+		st.add("ur");
+		st.add("stra");
+
+		st.add("apa");
+		st.add("ca");
+		/*st.add("david");
+		st.add("jattemycket");
+
+		st.add("den");
+		st.add("har");
+
+		st.add("uppgiften");
+		st.add("ar");
+		st.add("samst");
+		st.add("och");
+		st.add("trist");
+		st.add("fy");*/
 		
 		System.out.println("Tree before:");
 		System.out.println(st);
 	
-		st.get(75);
+		String s = st.get("stra");
+		//st.get(75);
 	
 		System.out.println("Tree after get(75)");
 		System.out.println(st);
+		System.out.print(s);
 
 	} // end main
 	

@@ -3,8 +3,8 @@
  * functions such as find, get and splay.
  *
  * @author Jonathan Carbol & Maria Fornmark
- * @date 2018-12-07
  * @version 2018.01
+ * @date 2018-12-07
  */
 
 public class SplayWithGet<E extends Comparable<? super E>>
@@ -22,32 +22,33 @@ public class SplayWithGet<E extends Comparable<? super E>>
 
     /**
      * The find method is used to find the Entry which has a certain element in it and splays it to root.
+     *
      * @param elem The element to find in the tree.
-     * @param t Dummy entry to compare to.
+     * @param t    Dummy entry to compare to.
      * @return The element of t which has the same element if found or closest Entry if not found.
      */
-    protected E findAndSplay(E elem, Entry t){
-        if ( t == null )
+    protected E findAndSplay(E elem, Entry t) {
+        if (t == null) {
             return null;
-        else {
-            int jfr = elem.compareTo( t.element );
-            if ( jfr  < 0 )
+        } else {
+            int jfr = elem.compareTo(t.element); //Compare elem with t.element
+            if (jfr < 0)                        //
                 if (t.left == (null)) {
                     splay(t);
                     return null;
-                }else {
+                } else {
                     return findAndSplay(elem, t.left);
                 }
-            else if ( jfr > 0 )
-                if(t.right == (null)){
+            else if (jfr > 0)
+                if (t.right == (null)) {
                     splay(t);
                     return null;
-                }else {
+                } else {
                     return findAndSplay(elem, t.right);
                 }
             else {
-                //splay(t);
-                return t.element;
+                splay(t);
+                return root.element;
             }
         }
     }//find
@@ -55,6 +56,7 @@ public class SplayWithGet<E extends Comparable<? super E>>
     /**
      * Gets the element from the tree by splaying its Entry or the closest Entry to the root.
      * If the element is found it returns it and if not found, the method returns null.
+     *
      * @param e The dummy element to compare to.
      * @return The element of p if e is found in the tree, else null.
      */
@@ -65,11 +67,43 @@ public class SplayWithGet<E extends Comparable<? super E>>
 
     /**
      * The splay method is used to splay the entry we are looking for to the root of the tree.
+     *
      * @param t Dummy Entry t to compare to.
      * @return true
      */
-    private boolean splay(Entry t){
-        while (!t.equals(root) ){
+    private void splay(Entry t) {
+        if (t.parent == null) {
+
+        } else if (t.parent.equals(root)) {
+            if (t.equals(t.parent.left)) {
+                zig(t.parent);
+
+            } else {
+                zag(t.parent);
+
+            }
+        } else if (t.parent.parent.equals(root)) {
+            if (t.parent.parent.left != null && t.equals(t.parent.parent.left.left)) {
+                zigzig(t.parent.parent);
+
+            } else if (t.parent.parent.left != null && t.equals(t.parent.parent.left.right)) {
+                zigzag(t.parent.parent);
+
+            } else if (t.parent.parent.right != null && t.equals(t.parent.parent.right.right)) {
+                zagzag(t.parent.parent);
+
+            } else if (t.parent.parent.right != null && t.equals(t.parent.parent.right.left)) {
+                zagzig(t.parent.parent);
+
+            }
+        } else {
+            splay(t.parent.parent);
+            splay(t);
+        }//TODO Kolla zig/zag
+
+//###########################################
+
+        /*while (!t.equals(root) ){
             if (t.parent.equals(null)){
                 t = root;
             }else {
@@ -97,13 +131,14 @@ public class SplayWithGet<E extends Comparable<? super E>>
                     }
                 }
             }
-        }
-        return true;
+        } */
+
     }
 
     /**
      * Moves the entries in the tree according to the "zig" movement.
      * Can be compared to right-rotation in a AVL tree.
+     *
      * @param x Dummy Entry used to move the entries in the tree.
      */
     private void zig(Entry x) {
@@ -125,6 +160,7 @@ public class SplayWithGet<E extends Comparable<? super E>>
     /**
      * Moves the entries in the tree according to the "zag" movement.
      * Can be compared to left-rotation in a AVL tree.
+     *
      * @param x Dummy Entry used to move the entries in the tree.
      */
     private void zag(Entry x) {
@@ -147,6 +183,7 @@ public class SplayWithGet<E extends Comparable<? super E>>
     /**
      * Moves the entries in the tree according to the "zigzag" movement.
      * Can be compared to double right rotation in a AVL tree.
+     *
      * @param x Dummy Entry used to move the entries in the tree.
      */
     private void zigzag(Entry x) {
@@ -170,6 +207,7 @@ public class SplayWithGet<E extends Comparable<? super E>>
     /**
      * Moves the entries in the tree according to the "zagzig" movement.
      * Can be compared to double left rotation in a AVL tree.
+     *
      * @param x Dummy Entry used to move the entries in the tree.
      */
     private void zagzig(Entry x) {
@@ -192,6 +230,7 @@ public class SplayWithGet<E extends Comparable<? super E>>
 
     /**
      * Moves the entries in the tree according to the "zigzig" movement.
+     *
      * @param x Dummy Entry used to move the entries in the tree.
      */
     private void zigzig(Entry x) {
@@ -225,6 +264,7 @@ public class SplayWithGet<E extends Comparable<? super E>>
 
     /**
      * Moves the entries in the tree according to the "zagzag" movement.
+     *
      * @param x Dummy Entry used to move the entries in the tree.
      */
     private void zagzag(Entry x) {
