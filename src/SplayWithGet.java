@@ -73,7 +73,7 @@ public class SplayWithGet<E extends Comparable<? super E>>
      */
     private void splay(Entry t) {
         if (t.parent == null) {
-
+        return;
         } else if (t.parent.equals(root)) {
             if (t.equals(t.parent.left)) {
                 zig(t.parent);
@@ -82,24 +82,25 @@ public class SplayWithGet<E extends Comparable<? super E>>
                 zag(t.parent);
 
             }
-        } else if (t.parent.parent.equals(root)) {
+        } else{
             if (t.parent.parent.left != null && t.equals(t.parent.parent.left.left)) {
                 zigzig(t.parent.parent);
+                splay(t.parent.parent);
 
             } else if (t.parent.parent.left != null && t.equals(t.parent.parent.left.right)) {
                 zigzag(t.parent.parent);
+                splay(t.parent);
 
             } else if (t.parent.parent.right != null && t.equals(t.parent.parent.right.right)) {
                 zagzag(t.parent.parent);
+                splay(t.parent.parent);
 
             } else if (t.parent.parent.right != null && t.equals(t.parent.parent.right.left)) {
                 zagzig(t.parent.parent);
+                splay(t.parent);
 
             }
-        } else {
-            splay(t.parent.parent);
-            splay(t);
-        }//TODO Kolla zig/zag
+        }
 
 //###########################################
 

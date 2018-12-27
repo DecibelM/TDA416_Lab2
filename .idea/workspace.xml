@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="521e0b10-5efb-4d2c-83ee-eb3ed0b7896c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab2_orig/BinarySearchTree.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab2_orig/BinarySearchTree.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BinarySearchTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BinarySearchTree.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SplayWithGet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SplayWithGet.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -99,12 +97,14 @@
     <session id="1739122058">
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="679" />
+          <entry key="java" value="852" />
+          <entry key="txt" value="63" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="679" />
+          <entry key="JAVA" value="852" />
+          <entry key="PLAIN_TEXT" value="63" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -133,8 +133,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BinarySearchTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2679">
-              <caret line="686" column="8" selection-start-line="686" selection-start-column="8" selection-end-line="686" selection-end-column="8" />
+            <state relative-caret-position="422">
+              <caret line="686" column="34" lean-forward="true" selection-start-line="686" selection-start-column="34" selection-end-line="686" selection-end-column="34" />
               <folding>
                 <element signature="e#3814#3815#0" expanded="true" />
                 <element signature="e#3858#3859#0" expanded="true" />
@@ -155,8 +155,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/SplayWithGet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
+            <state relative-caret-position="486">
+              <caret line="78" column="28" selection-start-line="78" selection-start-column="28" selection-end-line="78" selection-end-column="28" />
               <folding>
                 <element signature="e#493#494#0" expanded="true" />
                 <element signature="e#516#517#0" expanded="true" />
@@ -426,7 +426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1544171325492</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Changed Splay method to recursive. Still not working properly.">
+      <created>1545903620405</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1545903620405</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -503,19 +510,8 @@
     <MESSAGE value="ZigZig och ZagZag fungerar." />
     <MESSAGE value="Ny find metod foer splay traed" />
     <MESSAGE value="Java Doc for Splay tree." />
-    <option name="LAST_COMMIT_MESSAGE" value="Java Doc for Splay tree." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/BinarySearchTree.java</url>
-          <line>153</line>
-          <properties />
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Changed Splay method to recursive. Still not working properly." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed Splay method to recursive. Still not working properly." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/LinkedStack.java">
@@ -681,8 +677,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/BinarySearchTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2679">
-          <caret line="686" column="8" selection-start-line="686" selection-start-column="8" selection-end-line="686" selection-end-column="8" />
+        <state relative-caret-position="422">
+          <caret line="686" column="34" lean-forward="true" selection-start-line="686" selection-start-column="34" selection-end-line="686" selection-end-column="34" />
           <folding>
             <element signature="e#3814#3815#0" expanded="true" />
             <element signature="e#3858#3859#0" expanded="true" />
@@ -692,8 +688,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SplayWithGet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
+        <state relative-caret-position="486">
+          <caret line="78" column="28" selection-start-line="78" selection-start-column="28" selection-end-line="78" selection-end-column="28" />
           <folding>
             <element signature="e#493#494#0" expanded="true" />
             <element signature="e#516#517#0" expanded="true" />
