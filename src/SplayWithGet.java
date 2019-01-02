@@ -11,7 +11,6 @@ public class SplayWithGet<E extends Comparable<? super E>>
         extends BinarySearchTree<E>
         implements CollectionWithGet<E> {
 
-
     /**
      * The constructor for objects of the class Splay tree.
      * It inherits all of it from BST.
@@ -73,7 +72,7 @@ public class SplayWithGet<E extends Comparable<? super E>>
      */
     private void splay(Entry t) {
         if (t.parent == null) {
-        return;
+            return;
         } else if (t.parent.equals(root)) {
             if (t.equals(t.parent.left)) {
                 zig(t.parent);
@@ -82,7 +81,7 @@ public class SplayWithGet<E extends Comparable<? super E>>
                 zag(t.parent);
 
             }
-        } else{
+        } else {
             if (t.parent.parent.left != null && t.equals(t.parent.parent.left.left)) {
                 zigzig(t.parent.parent);
                 splay(t.parent.parent);
@@ -98,42 +97,8 @@ public class SplayWithGet<E extends Comparable<? super E>>
             } else if (t.parent.parent.right != null && t.equals(t.parent.parent.right.left)) {
                 zagzig(t.parent.parent);
                 splay(t.parent);
-
             }
         }
-
-//###########################################
-
-        /*while (!t.equals(root) ){
-            if (t.parent.equals(null)){
-                t = root;
-            }else {
-                if (t.parent.equals(root) || !t.parent.parent.equals( root)) {
-                    if (t.equals( t.parent.left)) {
-                        zig(t.parent);
-                        t = t.parent;
-                    } else {
-                        zag(t.parent);
-                        t = t.parent;
-                    }
-                } else if (t.parent.parent .equals( root)) {
-                    if (t.parent.parent.left != null && t.equals(t.parent.parent.left.left)) {
-                        zigzig(t.parent.parent);
-                        t = t.parent.parent;
-                    } else if (t.parent.parent.left != null && t.equals(t.parent.parent.left.right)) {
-                        zigzag(t.parent.parent);
-                        t = t.parent;
-                    } else if (t.parent.parent.right != null && t.equals( t.parent.parent.right.right)) {
-                        zagzag(t.parent.parent);
-                        t = t.parent.parent;
-                    } else if (t.parent.parent.right != null && t.equals( t.parent.parent.right.left )) {
-                        zagzig(t.parent.parent);
-                        t = t.parent;
-                    }
-                }
-            }
-        } */
-
     }
 
     /**
@@ -228,7 +193,6 @@ public class SplayWithGet<E extends Comparable<? super E>>
         z.parent = x;
     } //  zagzig
 
-
     /**
      * Moves the entries in the tree according to the "zigzig" movement.
      *
@@ -240,7 +204,6 @@ public class SplayWithGet<E extends Comparable<? super E>>
         E e = x.element;
         x.element = z.element;
         z.element = e;
-
 
         Entry p = x.right;
         x.right = x.left;
@@ -275,7 +238,6 @@ public class SplayWithGet<E extends Comparable<? super E>>
         x.element = z.element;
         z.element = e;
 
-
         Entry p = x.left;
         x.left = x.right;
         x.right = z.right;
@@ -296,5 +258,4 @@ public class SplayWithGet<E extends Comparable<? super E>>
             z.left.parent = z;
         }
     } // zagzag
-
 }

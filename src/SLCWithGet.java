@@ -1,7 +1,7 @@
 import static java.lang.System.out;
 
 /**
- * This is a singel linked list
+ * This is a single linked list
  *
  * @param <E> parameter E is the element type of the list.
  * @author Jonathan Carbol
@@ -11,7 +11,6 @@ import static java.lang.System.out;
 public class SLCWithGet<E extends Comparable<? super E>>
         extends LinkedCollection<E>
         implements CollectionWithGet<E> {
-
 
     /**
      * Constructor for for objects of class BSTwithGet
@@ -41,7 +40,6 @@ public class SLCWithGet<E extends Comparable<? super E>>
         }
         return null;
     }
-
     /**
      * Adding an element into the list.
      * The list is traversed until right place is found.
@@ -55,8 +53,7 @@ public class SLCWithGet<E extends Comparable<? super E>>
             throw new NullPointerException();
         }
         if (head == null) {
-            Entry e = new Entry(element, null);
-            head = e;
+            head = new Entry(element, null);
         } else {
             Entry t = head;
             Entry a = null;
